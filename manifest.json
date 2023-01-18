@@ -1,7 +1,7 @@
 {
   "name": "SkyCash",
   "short_name": "SkyCash",
-  "start_url": "/?home=true",
+  "start_url": "https://tengosc007.github.io/pwa-ticket-app/",
   "icons": [
     {
       "src": "icons/manifest-icon-192.maskable.png",
