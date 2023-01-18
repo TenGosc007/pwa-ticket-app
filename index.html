@@ -41,10 +41,10 @@
       </p>
 
       <p class="title">Ważny od:</p>
-      <p class="text">data --------------</p>
+      <p id="timeFrom" class="text">data --------------</p>
 
       <p class="title">Ważny do:</p>
-      <p class="text">data --------------</p>
+      <p id="timeTo" class="text">data --------------</p>
 
       <p class="title">Wystawca biletu:</p>
       <p class="text">MZKZG</p>
@@ -65,7 +65,7 @@
       <p class="text">230185022931</p>
 
       <p class="title">Bilet zakupiony:</p>
-      <p class="text">data------------</p>
+      <p id="timeBuy" class="text">data------------</p>
 
       <p class="title">Kwota transakcji:</p>
       <p class="text">6,00 PLN</p>
@@ -78,6 +78,41 @@
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/service-worker.js");
       }
+
+      const timeFrom = document.querySelector("#timeFrom");
+      const timeTo = document.querySelector("#timeTo");
+      const timeBuy = document.querySelector("#timeBuy");
+
+      const date = new Date();
+      const today = new Date(date.getTime() - 1 * 45 * 60 * 1000);
+      const endDate = new Date(date.getTime() + 1 * 75 * 60 * 1000);
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Months start at 0!
+      let dd = today.getDate();
+      let minutes = today.getMinutes();
+
+      let mmEnd = endDate.getMonth() + 1; // Months start at 0!
+      let ddEnd = endDate.getDate();
+      let minutesEnd = endDate.getMinutes();
+
+      if (dd < 10) dd = "0" + dd;
+      if (mm < 10) mm = "0" + mm;
+      if (minutes < 10) minutes = "0" + minutes;
+
+      if (ddEnd < 10) ddEnd = "0" + ddEnd;
+      if (mmEnd < 10) mmEnd = "0" + mmEnd;
+      if (minutesEnd < 10) minutesEnd = "0" + minutesEnd;
+
+      const formattedToday = dd + "-" + mm + "-" + yyyy;
+      const formattedTodayEnd = ddEnd + "-" + mmEnd + "-" + yyyy;
+
+      const time = today.getHours() + ":" + minutes + ":" + today.getSeconds();
+      const timeEnd =
+        endDate.getHours() + ":" + minutesEnd + ":" + endDate.getSeconds();
+
+      timeFrom.textContent = `${formattedToday} ${time}`;
+      timeBuy.textContent = `${formattedToday} ${time}`;
+      timeTo.textContent = `${formattedToday} ${timeEnd}`;
     </script>
   </body>
 </html>
