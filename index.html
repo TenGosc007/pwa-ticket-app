@@ -84,31 +84,39 @@
       const timeBuy = document.querySelector("#timeBuy");
 
       const date = new Date();
-      const today = new Date(date.getTime() - 1 * 45 * 60 * 1000);
+      const today = new Date();
+      //   const today = new Date(date.getTime() - 1 * 45 * 60 * 1000);
       const endDate = new Date(date.getTime() + 1 * 75 * 60 * 1000);
       const yyyy = today.getFullYear();
       let mm = today.getMonth() + 1; // Months start at 0!
       let dd = today.getDate();
+      let thh = today.getHours();
       let minutes = today.getMinutes();
+      let tss = today.getSeconds();
 
       let mmEnd = endDate.getMonth() + 1; // Months start at 0!
       let ddEnd = endDate.getDate();
+      let thhe = endDate.getHours();
       let minutesEnd = endDate.getMinutes();
+      let tsse = endDate.getSeconds();
 
       if (dd < 10) dd = "0" + dd;
       if (mm < 10) mm = "0" + mm;
+      if (thh < 10) thh = "0" + thh;
       if (minutes < 10) minutes = "0" + minutes;
+      if (tss < 10) tss = "0" + tss;
 
       if (ddEnd < 10) ddEnd = "0" + ddEnd;
       if (mmEnd < 10) mmEnd = "0" + mmEnd;
+      if (thhe < 10) thhe = "0" + thhe;
       if (minutesEnd < 10) minutesEnd = "0" + minutesEnd;
+      if (tsse < 10) tsse = "0" + tsse;
 
       const formattedToday = dd + "-" + mm + "-" + yyyy;
       const formattedTodayEnd = ddEnd + "-" + mmEnd + "-" + yyyy;
 
-      const time = today.getHours() + ":" + minutes + ":" + today.getSeconds();
-      const timeEnd =
-        endDate.getHours() + ":" + minutesEnd + ":" + endDate.getSeconds();
+      const time = thh + ":" + minutes + ":" + tss;
+      const timeEnd = thhe + ":" + minutesEnd + ":" + tsse;
 
       timeFrom.textContent = `${formattedToday} ${time}`;
       timeBuy.textContent = `${formattedToday} ${time}`;
