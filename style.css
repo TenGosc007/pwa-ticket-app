@@ -7,7 +7,7 @@
 
 body {
   background-color: #ffffff;
-  color: #000000;
+  color: #111;
   overflow-x: hidden;
   width: 100vw;
   margin: 0;
@@ -24,6 +24,7 @@ p {
   position: relative;
   height: 80px;
   border-bottom: 1px solid #999;
+  overflow: hidden;
 }
 
 .header-back {
@@ -69,6 +70,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .code-title {
@@ -77,6 +79,7 @@ p {
   color: #999;
   padding: 8px;
   align-self: flex-start;
+  margin: 4px 0 8px 4px;
 }
 
 .qr {
@@ -98,4 +101,18 @@ p {
   to {
     transform: scale(0.6);
   }
+}
+
+.title {
+  align-self: flex-start;
+  color: #999;
+  font-size: 20px;
+  font-weight: 200;
+  padding: 8px 16px;
+}
+
+.text {
+  align-self: flex-start;
+  padding: 8px 16px;
+  font-weight: 200;
 }
